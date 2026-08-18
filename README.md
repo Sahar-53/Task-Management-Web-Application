@@ -10,7 +10,7 @@ The application includes filtering options by status and priority to help users 
 
 ## Setup Instructions
 1.	Clone the repository:
-git clone https://github.com/Sahar-53/Final-Project.git
+git clone https://github.com/Sahar-53/Task-Management-Web-Application
 2. Create a virtual environment:
 python -m venv venv
 3. Activate the virtual environment:
