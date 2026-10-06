@@ -49,7 +49,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(50), nullable=False)
 
 
-# ====== Create Registration form with valdidators ====== #
+# ====== Create Registration form with validators ====== #
 class RegisterForm(FlaskForm):
 
     username = StringField("Username", validators=[

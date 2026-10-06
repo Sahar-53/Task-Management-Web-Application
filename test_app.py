@@ -19,12 +19,12 @@ def client():
 
     # === Create test client === #
     with app.test_client() as client:
-        yield client  # allows setup before tests and cleaup after tests
+        yield client  # allows setup before tests and cleanup after tests
 
 
 # ======== Tests ======== #
-# ===== Test 1 - Regisatration ===== #
-def test_registeration_user(client):
+# ===== Test 1 - Registration ===== #
+def test_registration_user(client):
     """Test to check if a user is able to register with correct details"""
 
     response = client.post("/register", data={
@@ -33,11 +33,11 @@ def test_registeration_user(client):
         "password": "password123"
     }, follow_redirects=True)  # redirect to avoid 302 status code
 
-    assert response.status_code == 200  # checks that the repsonse status is 200 (success)
+    assert response.status_code == 200  # checks that the response status is 200 (success)
 
 
 # ===== Test 2 - Registration ===== #
-def test_registeration_invalid(client):
+def test_registration_invalid(client):
     """Test to check if a user is unable to register with not unique email address"""
 
     with app.app_context():
@@ -58,7 +58,7 @@ def test_login_invalid(client):
     with client.application.app_context():
         user = User(username="testuser", password="password123")
         db.session.add(user)
-        db.session.commit
+        db.session.commit()
 
     response = client.post("/login", data={
         "username": "testuser",
@@ -77,7 +77,7 @@ def test_login_valid(client):
     with client.application.app_context():
         user = User(username="testuser", email="test-user@gmail.com", password="password123")
         db.session.add(user)
-        db.session.commit
+        db.session.commit()
 
     response = client.post("/login", data={
         "username": "testuser",

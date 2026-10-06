@@ -34,27 +34,18 @@
 
     <label class="block font-semibold mb-1" for="status">Status:</label>
     <select class="w-full border border-gray-300 rounded px-3 py-2" name="status">
-        <option value="Pending" {% if task.status=="Pending" %}selected{% endif %}>Pending</option>
+        <option value="To Do" {% if task.status=="To Do" %}selected{% endif %}>To Do</option>
         <option value="In Progress" {% if task.status=="In Progress" %}selected{% endif %}>In Progress</option>
         <option value="Completed" {% if task.status=="Completed" %}selected{% endif %}>Completed</option>
     </select>
     <br><br>
 
 
-    <!---- Update button ---->
-    <div class="text-center pt-4">
+    <!---- Back and Update button ---->
+    <div class="flex text-center space-x-123">
+    <a class="back-button" href="{{ url_for('tasks') }}">Back to Tasks</a>
     <button id="update" type="submit">Update Task</button>
     </div>
  </form>
-
- <br>
-
- 
- <!---- Back button ---->
- <div class="text-center pt-4">
-  <a class="back-button" href="{{ url_for('tasks') }}">Back to Tasks</a>
- </div>
-
-</div>
 
 {% endblock %}
